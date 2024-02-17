@@ -1,8 +1,4 @@
 <?php
-// Turn on error reporting for debugging
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 // Include Composer's autoloader
 require_once __DIR__ . '/vendor/autoload.php';
 
@@ -51,17 +47,24 @@ function addTask($conn, $task) {
     $conn->query($sql); // Execute the SQL query to add the task to the database
 }
 
-// If form is submitted, add task to the database
-if (isset($_POST['submit'])) { // Check if the 'submit' button has been clicked
-    $task = $_POST['task']; // Retrieve the task description from the form
-    addTask($conn, $task); // Call the addTask function to add the task to the database
+// Function to handle form submission
+function handleFormSubmission($conn) {
+    if (isset($_POST['submit'])) { // Check if the 'submit' button has been clicked
+        $task = $_POST['task']; // Retrieve the task description from the form
+        addTask($conn, $task); // Call the addTask function to add the task to the database
 
-    // Redirect back to index.php to prevent form resubmission
-    header("Location: index.php"); 
-    exit(); // Make sure script execution stops after redirection
+        // Redirect back to index.php to prevent form resubmission
+        header("Location: index.php");
+        exit(); // Make sure script execution stops after redirection
+    }
 }
+
+// Handle form submission
+handleFormSubmission($conn);
 
 // Check for database connection errors
 handleConnectionError($conn);
 
+// Close the database connection
+$conn->close();
 ?>
