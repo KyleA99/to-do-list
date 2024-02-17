@@ -1,13 +1,9 @@
 // Function to enable/disable the button based on input value
-function toggleButton() {
+const toggleButton = () => {
     const taskInput = document.getElementById("taskInput");
     const addButton = document.getElementById("addButton");
 
-    if (taskInput.value.trim() !== "") {
-        addButton.disabled = false;
-    } else {
-        addButton.disabled = true;
-    }
+    addButton.disabled = taskInput.value.trim() === "";
 }
 
 document.getElementById("taskInput").addEventListener("keyup", toggleButton);
