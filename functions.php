@@ -19,14 +19,15 @@ $dbname = $_ENV['DB_NAME'];
 // Establishing a connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check for database connection errors
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+// Function to handle database connection errors
+function handleConnectionError($conn) {
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
 }
 
 // Function to get tasks from the database
-function getTasks() {
-    global $conn;
+function getTasks($conn) {
     $tasks = array(); // Initialize an empty array to hold tasks
 
     // SQL query to select all tasks from the 'todos' table
@@ -43,16 +44,24 @@ function getTasks() {
     return $tasks; // Return the array containing tasks fetched from the database
 }
 
-// If form is submitted, add task to the database
-if (isset($_POST['submit'])) { // Check if the 'submit' button has been clicked
-    $task = $_POST['task']; // Retrieve the task description from the form
-
+// Function to add a task to the database
+function addTask($conn, $task) {
     // SQL query to insert the new task into the 'todos' table with the current timestamp
     $sql = "INSERT INTO todos (task, created_at) VALUES ('$task', NOW())";
     $conn->query($sql); // Execute the SQL query to add the task to the database
+}
+
+// If form is submitted, add task to the database
+if (isset($_POST['submit'])) { // Check if the 'submit' button has been clicked
+    $task = $_POST['task']; // Retrieve the task description from the form
+    addTask($conn, $task); // Call the addTask function to add the task to the database
 
     // Redirect back to index.php to prevent form resubmission
     header("Location: index.php"); 
     exit(); // Make sure script execution stops after redirection
 }
+
+// Check for database connection errors
+handleConnectionError($conn);
+
 ?>

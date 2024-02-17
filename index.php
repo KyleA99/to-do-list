@@ -21,19 +21,24 @@
                     // Include functions file
                     include 'functions.php';
 
+                    // Establishing a connection to the database
+                    $conn = new mysqli($_ENV['DB_SERVER'], $_ENV['DB_USERNAME'], $_ENV['DB_PASSWORD'], $_ENV['DB_NAME']);
+                    
+                    // Check for database connection errors
+                    handleConnectionError($conn);
+
                     // Fetch tasks from the database
-                    $tasks = getTasks();
+                    $tasks = getTasks($conn); // Pass the database connection as an argument
 
                     // Display tasks
                     foreach ($tasks as $task) {
                         echo "<li>" . $task['task'] . "</li>";
                     }
+
+                    // Close the database connection
+                    $conn->close();
                 ?>
             </ul>
         </div>
     </body>
 </html>
-
-<?php
-// PHP code for processing form submission or other tasks goes here
-?>
