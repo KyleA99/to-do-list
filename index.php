@@ -18,7 +18,6 @@
             <h2>Tasks:</h2>
             <ul>
                 <?php
-                    // Include functions file
                     include 'functions.php';
 
                     // Establishing a connection to the database
@@ -28,14 +27,13 @@
                     handleConnectionError($conn);
 
                     // Fetch tasks from the database
-                    $tasks = getTasks($conn); // Pass the database connection as an argument
+                    $tasks = getTasks($conn);
 
                     // Display tasks
                     foreach ($tasks as $task) {
                         echo "<li>" . $task['task'] . "</li>";
                     }
 
-                    // Close the database connection
                     $conn->close();
                 ?>
             </ul>
