@@ -29,12 +29,12 @@ $tasks = getTasks($conn);
             <h2>Tasks:</h2>
             <ul>
                 <?php
-                    // Display tasks
-                    foreach ($tasks as $task) {
-                        echo "<li>" . $task['task'] . "</li>";
-                    }
+                // Display tasks
+                foreach ($tasks as $task) {
+                    echo "<li>" . $task['task'] . " <input type='checkbox' name='task_id[]' value='" . $task['id'] . "'></li>";
+                }
 
-                    $conn->close();
+                $conn->close();
                 ?>
             </ul>
         </div>
