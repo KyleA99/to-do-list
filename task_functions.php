@@ -1,5 +1,10 @@
 <?php
-// Function to get tasks from the database
+/**
+ * Function to get tasks from the database
+ *
+ * @param mysqli $conn The database connection object
+ * @return array An array containing tasks fetched from the database
+ */
 function getTasks($conn) {
     $tasks = array();
 
@@ -18,7 +23,13 @@ function getTasks($conn) {
     return $tasks;
 }
 
-// Function to add a task to the database
+/**
+ * Function to add a task to the database
+ *
+ * @param mysqli $conn The database connection object
+ * @param string $task The task to be added
+ * @return void
+ */
 function addTask($conn, $task) {
     // SQL query to insert the new task into the 'todos' table with the current timestamp
     $sql = "INSERT INTO todos (task, created_at) VALUES ('$task', NOW())";
@@ -26,7 +37,12 @@ function addTask($conn, $task) {
     $conn->query($sql);
 }
 
-// Function to handle form submission
+/**
+ * Function to handle form submission
+ *
+ * @param mysqli $conn The database connection object
+ * @return void
+ */
 function handleFormSubmission($conn) {
     if (isset($_POST['submit'])) {
         $task = $_POST['task'];

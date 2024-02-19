@@ -13,7 +13,12 @@ $dbname = $_ENV['DB_NAME'];
 // Establishing a connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Function to handle database connection errors
+/**
+ * Handles database connection errors.
+ *
+ * @param mysqli $conn The database connection object to check for errors.
+ * @return void
+ */
 function handleConnectionError($conn) {
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
