@@ -10,7 +10,7 @@ $username = $_ENV['DB_USERNAME'];
 $password = $_ENV['DB_PASSWORD'];
 $dbname = $_ENV['DB_NAME'];
 
-// Establishing a connection to the database
+// Establishes a connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 /**

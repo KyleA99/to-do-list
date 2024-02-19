@@ -1,6 +1,6 @@
 <?php
 /**
- * Function to get tasks from the database
+ * Gets tasks from the database
  *
  * @param mysqli $conn The database connection object
  * @return array An array containing tasks fetched from the database
@@ -24,7 +24,7 @@ function getTasks($conn) {
 }
 
 /**
- * Function to add a task to the database
+ * Adds a task to the database
  *
  * @param mysqli $conn The database connection object
  * @param string $task The task to be added
@@ -38,7 +38,7 @@ function addTask($conn, $task) {
 }
 
 /**
- * Function to handle form submission
+ * Handles form submission
  *
  * @param mysqli $conn The database connection object
  * @return void
