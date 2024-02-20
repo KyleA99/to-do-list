@@ -32,15 +32,19 @@ $tasks = getTasks($conn);
                 // Display tasks
                 foreach ($tasks as $task) {
                 ?>
-
                 <li>
-                    <?php echo $task['task']; ?>
-                    <input type="checkbox" name="task_id[]" value="<?php echo $task['id']; ?>">
+                    <div class="task-container">
+                        <div class="task-description">
+                            <?php echo $task['task']; ?>
+                        </div>
+                        <div class="checkbox-container">
+                            <input type="checkbox" name="task_id[]" value="<?php echo $task['id']; ?>">
+                        </div>
+                    </div>
                 </li>
-
                 <?php
-                    }
-                    $conn->close();
+                }
+                $conn->close();
                 ?>
             </ul>
         </div>
