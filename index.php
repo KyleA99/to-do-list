@@ -37,8 +37,10 @@ $tasks = getTasks($conn);
                         <div class="task-description">
                             <?php echo $task['task']; ?>
                         </div>
+                        
                         <div class="checkbox-container">
                             <input type="checkbox" name="task_id[]" value="<?php echo $task['id']; ?>">
+                            <span>Task Completed</span>
                         </div>
                     </div>
                 </li>
