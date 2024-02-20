@@ -6,6 +6,10 @@
     padding: 1rem;
 }
 
+ul {
+    padding: 0;
+}
+
 .input-container li {
     list-style-type: none;
 }
