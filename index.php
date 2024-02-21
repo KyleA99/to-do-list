@@ -26,7 +26,6 @@ $tasks = getTasks($conn);
                 <button type="submit" id="addButton" name="submit" disabled>Add Task</button>
             </form>
 
-            <h2>Tasks:</h2>
             <ul>
                 <?php
                 // Display tasks
