@@ -16,6 +16,7 @@ $tasks = getTasks($conn);
         <title>To Do List</title>
         <link rel="stylesheet" href="styles.css">
         <script src="disableButton.js" defer></script>
+        <script src="manipulateInterface.js" defer></script>
     </head>
 
     <body>
