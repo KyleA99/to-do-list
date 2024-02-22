@@ -4,7 +4,10 @@ The To-Do List is an application that allows the user to input and complete task
 
 ## Preview
 
-![](./assets/images/to-do-list.mp4)
+<video width="320" height="240" controls>
+  <source src="./assets/videos/to-do-list.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Requirements
 
