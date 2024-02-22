@@ -8,6 +8,19 @@ function changeTaskContainerBackgroundColor() {
     taskContainers.forEach(function(container) {
         container.style.backgroundColor = "lightblue";
     });
+
+    // Add event listeners to checkboxes
+    const checkboxes = document.querySelectorAll("input[type='checkbox']");
+    checkboxes.forEach(function(checkbox) {
+        checkbox.addEventListener('change', function() {
+            const taskContainer = this.closest('.task-container');
+            if (this.checked) {
+                taskContainer.style.backgroundColor = "lightgrey";
+            } else {
+                taskContainer.style.backgroundColor = "lightblue";
+            }
+        });
+    });
 }
 
 // Call the function when the DOM content is loaded
