@@ -1,4 +1,7 @@
-// Define a function to change background color of task containers
+/**
+ * Changes the background color of task containers to light blue.
+ * @function changeTaskContainerBackgroundColor
+ */
 function changeTaskContainerBackgroundColor() {
     const taskContainers = document.querySelectorAll(".task-container");
 
