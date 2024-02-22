@@ -48,10 +48,15 @@
 body {
     display: grid;
     place-items: center;
+    margin-top: 2rem;
 }
 
 .input-container {
     width: 80%;
+    padding: 1rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    background-color: rgb(213, 213, 213);
 }
 
 .input-container li {
