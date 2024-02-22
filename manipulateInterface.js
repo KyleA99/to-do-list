@@ -13,14 +13,39 @@ function changeTaskContainerBackgroundColor() {
     const checkboxes = document.querySelectorAll("input[type='checkbox']");
     checkboxes.forEach(function(checkbox) {
         checkbox.addEventListener('change', function() {
-            const taskContainer = this.closest('.task-container');
-            if (this.checked) {
-                taskContainer.style.backgroundColor = "lightgrey";
-            } else {
-                taskContainer.style.backgroundColor = "lightblue";
-            }
+            toggleStrikethrough(this);
+            toggleBackgroundColor(this);
         });
     });
+}
+
+/**
+ * Toggles the strikethrough effect on the task description.
+ * @param checkbox - The checkbox element
+ */
+function toggleStrikethrough(checkbox) {
+    const taskContainer = checkbox.closest('.task-container');
+    const taskDescription = taskContainer.querySelector('.task-description');
+
+    if (checkbox.checked) {
+        taskDescription.style.textDecoration = "line-through";
+    } else {
+        taskDescription.style.textDecoration = "none";
+    }
+}
+
+/**
+ * Toggles the background color of the task container.
+ * @param checkbox - The checkbox element
+ */
+function toggleBackgroundColor(checkbox) {
+    const taskContainer = checkbox.closest('.task-container');
+
+    if (checkbox.checked) {
+        taskContainer.style.backgroundColor = "lightgrey";
+    } else {
+        taskContainer.style.backgroundColor = "lightblue";
+    }
 }
 
 // Call the function when the DOM content is loaded
