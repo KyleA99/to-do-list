@@ -45,6 +45,19 @@
     isolation: isolate;
 }
 
+body {
+    display: grid;
+    place-items: center;
+}
+
+.input-container {
+    width: 80%;
+}
+
+.input-container li {
+    list-style-type: none;
+}
+
 form {
     margin-bottom: 2rem;
 }
@@ -58,10 +71,6 @@ form {
 
 ul {
     padding: 0;
-}
-
-.input-container li {
-    list-style-type: none;
 }
 
 .task-description {
